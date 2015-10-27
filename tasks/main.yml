@@ -1,0 +1,66 @@
+---
+- name: create useful groups
+  group: name={{ item }} state=present
+  with_items:
+    - docker
+    - wheel
+    - admin
+    - dev
+    - vboxusers
+    - sudo
+    - ada
+    - libvirt
+    - blade
+    - qemu
+    - kvm
+
+- name: create user arothste
+  user: >
+    name=arothste
+    state=present
+    shell=/bin/bash
+    groups=docker,admin,dev,wheel,vboxusers,sudo,ada,libvirt,blade,qemu,kvm
+
+- name: create /home/arothste/.ssh
+  file: >
+    owner=arothste
+    group=arothste
+    mode="go-w"
+    path=/home/arothste/.ssh
+    state=directory
+  
+- name: install /home/arothste/.ssh/authorized_keys
+  copy: >
+    owner=arothste
+    group=arothste
+    mode=600
+    src=home/arothste/.ssh/authorized_keys
+    dest=/home/arothste/.ssh/authorized_keys
+
+- name: install /home/arothste/.gitconfig
+  copy: >
+    owner="arothste"
+    group="arothste"
+    mode=600
+    src=home/arothste/.gitconfig
+    dest=/home/arothste/.gitconfig
+
+- name: create /home/arothste/.atom
+  when: proxy_env.http_proxy is defined
+  file: >
+    owner=arothste
+    group=arothste
+    mode=700
+    path=/home/arothste/.atom
+    state=directory
+
+- name: install /home/arothste/.atom/.apmrc
+  when: proxy_env.http_proxy is defined
+  template: >
+    owner=arothste
+    group=arothste
+    mode=600
+    src=home/arothste/.atom/.apmrc
+    dest=/home/arothste/.atom/.apmrc
+  
+  

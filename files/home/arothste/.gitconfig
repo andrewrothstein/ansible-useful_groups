@@ -1,0 +1,11 @@
+[user]
+	email = arothste@blackrock.com
+	name = Andrew Rothstein
+[push]
+	default = simple
+
+[url "ssh://"]
+	insteadOf = git://
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
