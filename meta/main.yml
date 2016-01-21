@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: configures user accounts and groups
+  description: creates the arothste account and useful groups
   company: BlackRock
   license:
     - MIT
@@ -13,6 +13,8 @@ galaxy_info:
     - name: Fedora
       versions:
         - 21
+        - 22
+        - 23
     - name: Ubuntu
       versions:
         - trusty
