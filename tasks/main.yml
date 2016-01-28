@@ -37,14 +37,6 @@
     src=home/arothste/.ssh/authorized_keys
     dest=/home/arothste/.ssh/authorized_keys
 
-- name: install /home/arothste/.gitconfig
-  copy: >
-    owner="arothste"
-    group="arothste"
-    mode=600
-    src=home/arothste/.gitconfig
-    dest=/home/arothste/.gitconfig
-
 - name: create /home/arothste/.atom
   when: proxy_env.http_proxy is defined
   file: >
