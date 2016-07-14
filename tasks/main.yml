@@ -1,6 +1,8 @@
 ---
 - name: create useful groups
-  group: name={{ item }} state=present
+  become: yes
+  become_user: root
+  group: name={{item}} state=present
   with_items:
     - docker
     - wheel
@@ -15,6 +17,8 @@
     - kvm
 
 - name: create user arothste
+  become: yes
+  become_user: root
   user: >
     name=arothste
     state=present
@@ -22,32 +26,34 @@
     groups=docker,admin,dev,wheel,vboxusers,sudo,ada,libvirt,blade,qemu,kvm
 
 - name: create /home/arothste/.ssh
+  become: yes
+  become_user: arothste
   file: >
-    owner=arothste
-    group=arothste
-    mode="go-w"
     path=/home/arothste/.ssh
     state=directory
+    mode=0700
   
 - name: install /home/arothste/.ssh/authorized_keys
+  become: yes
+  become_user: arothste
   copy: >
-    owner=arothste
-    group=arothste
     mode=600
     src=home/arothste/.ssh/authorized_keys
     dest=/home/arothste/.ssh/authorized_keys
 
 - name: create /home/arothste/.atom
   when: proxy_env.http_proxy is defined
+  become: yes
+  become_user: arothste
   file: >
-    owner=arothste
-    group=arothste
     mode=700
     path=/home/arothste/.atom
     state=directory
 
 - name: install /home/arothste/.atom/.apmrc
   when: proxy_env.http_proxy is defined
+  become: yes
+  become_user: arothste
   template: >
     owner=arothste
     group=arothste
