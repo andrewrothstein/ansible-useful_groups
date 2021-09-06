@@ -1,0 +1,12 @@
+---
+useful_groups:
+  - docker
+  - wheel
+  - admin
+  - dev
+  - vboxusers
+  - sudo
+  - libvirt
+  - qemu
+  - kvm
+  - lxd

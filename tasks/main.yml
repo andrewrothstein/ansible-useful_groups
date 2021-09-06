@@ -1,18 +1,8 @@
 ---
 - name: create useful groups
-  become: yes
+  become: true
   become_user: root
-  group: name={{item}} state=present
-  with_items:
-    - docker
-    - wheel
-    - admin
-    - dev
-    - vboxusers
-    - sudo
-    - ada
-    - libvirt
-    - blade
-    - qemu
-    - kvm
-    - lxd
+  with_items: '{{ useful_groups }}'
+  group:
+    name: '{{ item }}'
+    state: present
