@@ -3,6 +3,6 @@
   become: true
   become_user: root
   with_items: '{{ useful_groups }}'
-  group:
-    name: '{{ item }}'
-    state: present
+  ansible.builtin.group:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'

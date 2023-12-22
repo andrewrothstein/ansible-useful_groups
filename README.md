@@ -1,6 +1,6 @@
-andrewrothstein.useful-groups
+andrewrothstein.useful_groups
 ========================
-![Build Status](https://github.com/andrewrothstein/ansible-useful-groups/actions/workflows/build.yml/badge.svg)
+![Build Status](https://github.com/andrewrothstein/ansible-useful_groups/actions/workflows/build.yml/badge.svg)
 
 Ensures a bunch of useful groups exist
 
@@ -25,7 +25,7 @@ Example Playbook
 ```yml
 - hosts: servers
   roles:
-    - andrewrothstein.useful-groups
+    - andrewrothstein.useful_groups
 ```
 
 License
