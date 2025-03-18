@@ -1,4 +1,5 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.useful_groups
+  hosts: all
   roles:
-    - { role: '.' }
+    - role: '{{ playbook_dir }}'
