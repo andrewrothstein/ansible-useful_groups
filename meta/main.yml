@@ -1,33 +1,34 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: creates useful (l|u)nix groups
   company: BlackRock
+  description: creates useful (l|u)nix groups
+  galaxy_tags:
+    - development
   license: MIT
   min_ansible_version: '1.2'
+  namespace: andrewrothstein
   platforms:
     - name: Alpine
-      version:
+      versions:
         - all
-    - name: Archlinux
+    - name: ArchLinux
       versions:
         - all
     - name: Debian
-      version:
+      versions:
         - bookworm
         - bullseye
     - name: EL
       versions:
-        - 8
-        - 9
+        - '8'
+        - '9'
     - name: Fedora
       versions:
-        - 38
-        - 39
+        - '40'
+        - '41'
     - name: Ubuntu
       versions:
-        - focal
         - jammy
-  galaxy_tags:
-    - development
+        - noble
   role_name: useful_groups

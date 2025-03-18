@@ -1,5 +1,5 @@
 ---
-- name: create useful groups
+- name: Creating useful groups
   become: true
   become_user: root
   with_items: '{{ useful_groups }}'
